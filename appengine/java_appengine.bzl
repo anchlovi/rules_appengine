@@ -83,7 +83,11 @@ def _add_file(in_file, output, path = None):
 
   if in_file.basename.endswith(".jar") and in_file.owner.package:
     filename = "%s/%s" % (in_file.owner.package, in_file.basename)
-    filename = filename.replace("/", "_").replace("=", "_")
+
+    #filename = filename.replace("/", "_").replace("=", "_")
+    #commenting out equal sign replace to reproduce zipper bug
+
+    filename = filename.replace("/", "_")
     output_path = "%s/%s" % (output_path, filename)
 
   return [
